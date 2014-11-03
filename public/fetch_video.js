@@ -17,8 +17,16 @@ $(document).ready(function() {
   });
 
   function ajaxCall() {
-    
-    // your code will go here
+    var input = $("#text-field").val();
+
+    $.ajax({
+      url: "/widget",
+      data: { search_keyword: input },
+    })
+      .done(function( youTubeWidget ) {
+        // replace with the new video
+        $("#search-results").html(youTubeWidget);
+      });
 
   }
 
