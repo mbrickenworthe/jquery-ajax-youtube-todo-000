@@ -16,9 +16,17 @@ $(document).ready(function() {
     }
   });
 
-  function ajaxCall() {
-    
-    // your code will go here
+  function ajaxCall(){
+    var search_word = $("#text-field").val();
+
+    $.ajax({
+      type: "GET",
+      url: "/widget",
+      data: {search_keyword: search_word}
+    }) .done(function() {
+      $(".search-results").html("<p>hello world</p>");
+    });
+
 
   }
 
